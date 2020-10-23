@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: cd9777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-color: #fff;
+  width: 500px;
+  max-width: 100%;
+  box-shadow: 1px 1px 5px 5px grey;
+}
+.header {
+  padding: 3rem;
+}
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+#btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: chartreuse;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: cornflowerblue;
+  color: #fff;
+}
+.btn:focus {
+  outline: none;
+}
