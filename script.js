@@ -116,7 +116,8 @@ function submitAnswer(){
     if(currentQuestion<quizData.length){
     loadQuiz();
     }else{
-        quiz.innerHTML=`<h2>your score is  ${score}/${quizData.length}.</h2>`
+        quiz.innerHTML=`<h2>your score is  ${score}/${quizData.length}.</h2>
+        <button id='btn' onClick="location.reload()">Reload</button>`
     }
     
    
