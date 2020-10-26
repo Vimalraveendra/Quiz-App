@@ -10,6 +10,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  padding: 0.6rem;
+  font-size: 1.5rem;
+}
 #container {
   background-color: #fff;
   width: 500px;
@@ -44,10 +52,4 @@ ul li {
 #btn:hover {
   background-color: cornflowerblue;
   color: #fff;
-}
-
-h2 {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.5rem;
 }
