@@ -10,10 +10,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-.container {
+#container {
   background-color: #fff;
   width: 500px;
-  max-width: 100%;
+  max-width: 80%;
   box-shadow: 1px 1px 5px 5px grey;
 }
 .header {
@@ -37,10 +37,17 @@ ul li {
   font-size: 1.25rem;
   cursor: pointer;
 }
-.btn:hover {
+
+#btn:focus {
+  outline: none;
+}
+#btn:hover {
   background-color: cornflowerblue;
   color: #fff;
 }
-.btn:focus {
-  outline: none;
+
+h2 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
 }
