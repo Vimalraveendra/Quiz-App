@@ -41,17 +41,25 @@ const quizData =[{
 ]
 
 const question = document.getElementById('question');
-const answer_a = document.getElementById('a');
-const answer_b = document.getElementById('b');
-const answer_c = document.getElementById('c');
-const answer_d = document.getElementById('d');
+const answer_a = document.getElementById('answer_a');
+const answer_b = document.getElementById('answer_b');
+const answer_c = document.getElementById('answer_c');
+const answer_d = document.getElementById('answer_d');
 const button = document.getElementById('btn')
 const list =document.getElementById('list')
+const quiz = document.getElementById('container')
+
 
 let currentQuestion =0;
+let score =0;
+
+// when the webpage initializes we need to call the questions
 loadQuiz();
 
 function loadQuiz(){
+    // before loading each question we need to un-check the radio button, so 
+    // we need to invoke the deselectAnswer function 
+    deselectAnswer();
     const current_Question = quizData[currentQuestion];
     question.textContent= current_Question.question;
    answer_a.textContent= current_Question.a
@@ -61,16 +69,59 @@ function loadQuiz(){
    
 }
 
+function getSelectedAnswer(){
+    let answer='';
+    //  selecting the answers  from the input radio button as an array,
+    // so here we will get the four answers of the radio button.
+    // then we will iterate through the array and check, any of the radio
+    // button is selected , if it is selected  then we will grab the id of that 
+    // radio button.& we will return that id.
+    let ele = document.getElementsByName('answer');
+    ele.forEach(item=>{
+        if(item.checked){
+           answer = item.id
+        }
+    })
+    return answer
+    }
+
+    function deselectAnswer(){
+    // once the radio button is selected we need to reselect the radio button
+    // before we invoking the next question, otherwise the following questions will 
+    // be checked with the same code.(c) . for that we need to un-check the button.
+        let ele = document.getElementsByName('answer');
+        ele.forEach(item=>{
+           item.checked=false;
+        })
+       
+        }
+    
+
 function submitAnswer(){
+// invoking the getSelectedAnswer method
+ const answer = getSelectedAnswer();
+// conditionally checking if the user selected the radio button or not
+// if user selected the radio button then we will check the id of that radio
+// button equal to quizData' correct answer if both are equal ,we will 
+// increment the value of score;
+ if(answer){
+     if(answer ===quizData[currentQuestion].correct){
+         score++
+     }
     currentQuestion++;
+ }
+// here we checking if the questions is less than the quizData length , if that
+// the case we will call the loadQuiz function again ,other wise we will render
+// the result 
     if(currentQuestion<quizData.length){
     loadQuiz();
+    }else{
+        quiz.innerHTML=`<h2>your score is  ${score}/${quizData.length}.</h2>`
     }
+    
+   
 }
 
-function checkAnswer(e){
- console.log(e.target)
-}
+
 
 button.addEventListener('click',submitAnswer)
-list .addEventListener('click',checkAnswer)
